@@ -28,26 +28,29 @@ class Person {
 }
 
 class Student extends Person {
-  cohort = "CodeCrew";
+  constructor(fname, lname, age, interests, cohort) {
+    super(fname, lname, age, interests, cohort);
+    this.cohort = cohort;
+  }
 }
-
 class Teacher extends Person {
+  constructor(fname, lname, age, interests, subject, bio) {
+    super(fname, lname, age, interests, subject, bio);
+  }
   subject = "subject";
   students = [];
 
   addStudent() {
     let student = {
       name: prompt(
-        `To add a student to ${this.fname}  ${this.lname}'s class, enter the student's first and last name.`
+        `To add a student to ${this.fname} ${this.lname}'s class, enter the student's first and last name.`
       ),
       cohort: prompt(`Enter cohort for new student`),
     };
     this.students.push(`${student.name} ${student.cohort}`);
   }
   listAllStudents() {
-    console.log(
-      `${this.fname}  ${this.lname}'s students are: ${this.students}`
-    );
+    console.log(`${this.fname} ${this.lname}'s students are: ${this.students}`);
   }
 }
 let teacher1 = new Teacher(
